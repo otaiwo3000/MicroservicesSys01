@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.aspnetcore.http.features" Version="5.0.13" />
+    <PackageReference Include="netcore.mailkit" Version="2.0.3" />
+    <PackageReference Include="spire.email" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

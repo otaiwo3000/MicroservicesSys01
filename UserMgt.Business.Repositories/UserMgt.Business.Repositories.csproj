@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.aspnetcore.http" Version="2.2.2" />
+    <PackageReference Include="microsoft.aspnetcore.http.abstractions" Version="2.2.0" />
+    <PackageReference Include="microsoft.entityframeworkcore" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UserMgt.Business.Interfaces\UserMgt.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\UserMgt.Business.Logger\UserMgt.Business.Logger.csproj" />
+  </ItemGroup>
+
+</Project>
