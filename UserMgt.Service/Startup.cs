@@ -128,7 +128,6 @@ namespace UserMgt.Service
             //Hangfire.GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 1 });
 
 
-
             app.UseEndpoints(endpoints =>
             {
                 ////endpoints.MapControllers();

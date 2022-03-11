@@ -27,45 +27,47 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Business", "02-Business"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Service", "03-Service", "{1F7D726E-E688-41A9-BC99-23CED39443C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Shared.DataAccess", "Helpdesk.Shared.DataAccess\Helpdesk.Shared.DataAccess.csproj", "{B6981C20-6D7F-4369-89EA-81B87AAB20F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Shared.DataAccess", "Helpdesk.Shared.DataAccess\Helpdesk.Shared.DataAccess.csproj", "{B6981C20-6D7F-4369-89EA-81B87AAB20F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Shared.Common", "Helpdesk.Shared.Common\Helpdesk.Shared.Common.csproj", "{580455BD-0F1C-4788-829F-6D965814E12F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Shared.Common", "Helpdesk.Shared.Common\Helpdesk.Shared.Common.csproj", "{580455BD-0F1C-4788-829F-6D965814E12F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Shared.Entities", "Helpdesk.Shared.Entities\Helpdesk.Shared.Entities.csproj", "{EB58BBCF-388E-4586-B4A8-E1197B3D94B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Shared.Entities", "Helpdesk.Shared.Entities\Helpdesk.Shared.Entities.csproj", "{EB58BBCF-388E-4586-B4A8-E1197B3D94B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-UserManagementService", "03-UserManagementService", "{C33C70CD-FC38-4343-8C9B-9F62AFF39EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Business.Interfaces", "Helpdesk.Business.Interfaces\Helpdesk.Business.Interfaces.csproj", "{06F7C33D-1EFF-48B9-AE94-6CC33136A6E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Business.Interfaces", "Helpdesk.Business.Interfaces\Helpdesk.Business.Interfaces.csproj", "{06F7C33D-1EFF-48B9-AE94-6CC33136A6E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Business.Repositories", "Helpdesk.Business.Repositories\Helpdesk.Business.Repositories.csproj", "{C417D61D-F819-493E-BC8E-6CAF11B1F887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Business.Repositories", "Helpdesk.Business.Repositories\Helpdesk.Business.Repositories.csproj", "{C417D61D-F819-493E-BC8E-6CAF11B1F887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Business.Logger", "Helpdesk.Business.Logger\Helpdesk.Business.Logger.csproj", "{E3000574-6392-44A3-967C-AD992146EC74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Business.Logger", "Helpdesk.Business.Logger\Helpdesk.Business.Logger.csproj", "{E3000574-6392-44A3-967C-AD992146EC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpdesk.Service", "Helpdesk.Service\Helpdesk.Service.csproj", "{3EEE2110-5718-485B-AB12-0EDFD2C75FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpdesk.Service", "Helpdesk.Service\Helpdesk.Service.csproj", "{3EEE2110-5718-485B-AB12-0EDFD2C75FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{95DEF6D7-E3B8-496B-BCED-D4A0A225CA42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "EmailService\EmailService.csproj", "{95DEF6D7-E3B8-496B-BCED-D4A0A225CA42}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Shared", "01-Shared", "{FAC521A5-BFBD-4C3D-AA0D-579520FB3190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Shared.Common", "UserMgt.Shared.Common\UserMgt.Shared.Common.csproj", "{F34A3224-411C-4271-B61C-DAC88F293164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Shared.Common", "UserMgt.Shared.Common\UserMgt.Shared.Common.csproj", "{F34A3224-411C-4271-B61C-DAC88F293164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Shared.Entities", "UserMgt.Shared.Entities\UserMgt.Shared.Entities.csproj", "{EC4B9950-991F-4F99-8C26-CFF0DFCEF3A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Shared.Entities", "UserMgt.Shared.Entities\UserMgt.Shared.Entities.csproj", "{EC4B9950-991F-4F99-8C26-CFF0DFCEF3A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Business", "02-Business", "{704474B2-C386-40C8-88B0-087CA52EE9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Business.Interfaces", "UserMgt.Business.Interfaces\UserMgt.Business.Interfaces.csproj", "{FC6FFE7E-C5A8-4814-A9F8-5D7A90BF045D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Business.Interfaces", "UserMgt.Business.Interfaces\UserMgt.Business.Interfaces.csproj", "{FC6FFE7E-C5A8-4814-A9F8-5D7A90BF045D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Business.Repositories", "UserMgt.Business.Repositories\UserMgt.Business.Repositories.csproj", "{263496B1-544A-431A-8FC0-FA5FD1E89AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Business.Repositories", "UserMgt.Business.Repositories\UserMgt.Business.Repositories.csproj", "{263496B1-544A-431A-8FC0-FA5FD1E89AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Business.Logger", "UserMgt.Business.Logger\UserMgt.Business.Logger.csproj", "{B13E3BBA-A943-4814-866A-BEE364A49537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Business.Logger", "UserMgt.Business.Logger\UserMgt.Business.Logger.csproj", "{B13E3BBA-A943-4814-866A-BEE364A49537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Shared.DataAccess", "UserMgt.Shared.DataAccess\UserMgt.Shared.DataAccess.csproj", "{BDF60F6C-B92E-4FF4-99E5-03F5D9FA835B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Shared.DataAccess", "UserMgt.Shared.DataAccess\UserMgt.Shared.DataAccess.csproj", "{BDF60F6C-B92E-4FF4-99E5-03F5D9FA835B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Service", "03-Service", "{D80C86F0-9154-45B1-9A4E-4D69E68C6815}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgt.Service", "UserMgt.Service\UserMgt.Service.csproj", "{9C724397-213F-4A74-BA19-F8230239AB6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgt.Service", "UserMgt.Service\UserMgt.Service.csproj", "{9C724397-213F-4A74-BA19-F8230239AB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMgr.Business.EmailService", "UserMgr.Business.EmailService\UserMgr.Business.EmailService.csproj", "{A8685EAF-4986-4BFD-AC8B-84B530523906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgr.Business.EmailService", "UserMgr.Business.EmailService\UserMgr.Business.EmailService.csproj", "{A8685EAF-4986-4BFD-AC8B-84B530523906}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C526908F-BA41-468F-B4B4-7456221005BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,10 @@ Global
 		{A8685EAF-4986-4BFD-AC8B-84B530523906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8685EAF-4986-4BFD-AC8B-84B530523906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8685EAF-4986-4BFD-AC8B-84B530523906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C526908F-BA41-468F-B4B4-7456221005BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C526908F-BA41-468F-B4B4-7456221005BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C526908F-BA41-468F-B4B4-7456221005BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C526908F-BA41-468F-B4B4-7456221005BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
