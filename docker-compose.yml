@@ -3,6 +3,16 @@ version: '3.4'
 services:
   usermgt.service:
     image: ${DOCKER_REGISTRY-}usermgtservice
+    restart: always
     build:
       context: .
       dockerfile: UserMgt.Service/Dockerfile
+
+
+  helpdesk.service:
+    image: ${DOCKER_REGISTRY-}helpdeskservice
+    restart: always
+    build:
+      context: .
+      dockerfile: Helpdesk.Service/Dockerfile
+

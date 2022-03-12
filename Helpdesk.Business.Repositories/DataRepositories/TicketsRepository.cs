@@ -23,41 +23,71 @@ namespace Helpdesk.Business.Repositories.DataRepositories
         IRepositoryBase<Tickets> _repo;
 
 
-        //public IEnumerable<Tickets> GetAllTickets(int organizationID)
-        //{
-        //    //var res = FindAll().Where(x => x.OrganizationId == organizationID).Include(x => x.Organization).OrderBy(y => y.Organization.Name).ToList();
-        //    var res = FindAll().Where(x => x.OrganizationId == organizationID)
-        //        .Include(x => x.Organization)
-        //        .Include(x=>x.Type)
-        //        .Include(x=>x.Status)
-        //        .Include(x=>x.SLAPriority)
-        //        .Include(x=>x.Product)
-        //        .Include(x=>x.Group)
-        //        .Include(x=>x.Module)
-        //        .Include(x=>x.Agent)
-        //        .Include(x=>x.Supervisor)
 
-        //        .OrderBy(x=>x.Group.Name).ToList();
+        //public IEnumerable<Tickets> GetAllTickets(int organizationID, AgentScope agentscope, List<int> groupIDs)
+        //{
+        //    //NOTE: -------- gives last day of the month: -------------
+        //    //var lastDateofTheCurrentMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)
+        //    //var lastDateOfaParticularMonth = DateTime.DaysInMonth(date.Year, date.Month);
+
+        //    DateTime firstdateoftheMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+        //    DateTime lastdateoftheMonth = firstdateoftheMonth.AddMonths(1).AddSeconds(-1);
+
+        //    List<Tickets> res = new List<Tickets>();
+
+        //    //RequiredPriviliges.Any(x => priviliges.Any(y => y == x))
+
+        //    if (agentscope == AgentScope.GlobalAccess) 
+        //    {
+        //        res = FindAll().Where(x => x.OrganizationId == organizationID && (x.CreatedOn >= firstdateoftheMonth && x.CreatedOn<=DateTime.Now))
+        //        .Include(x => x.Organization)
+        //        .Include(x => x.Type)
+        //        .Include(x => x.Status)
+        //        .Include(x => x.SLAPriority)
+        //        .Include(x => x.Product)
+        //        .Include(x => x.Group)
+        //        .Include(x => x.Module)
+        //        .Include(x => x.Agent)
+        //        .Include(x => x.Supervisor)
+        //        //.Include(x=>x.Agent.AgentType)
+        //        //.Include(x=>x.Agent.AgentEngagementType)
+
+        //        .OrderBy(x => x.Group.Name).ToList();
+        //    }
+
+        //    else if (agentscope == AgentScope.GroupAccess)
+        //    {
+        //    res = FindAll().Where(x => x.OrganizationId == organizationID && groupIDs.Contains(x.GroupId) && (x.CreatedOn >= firstdateoftheMonth && x.CreatedOn <= DateTime.Now))
+        //    //res = FindAll().Any(x => groupIDs.Any(y => y == x.GroupId))
+        //        .Include(x => x.Organization)
+        //        .Include(x => x.Type)
+        //        .Include(x => x.Status)
+        //        .Include(x => x.SLAPriority)
+        //        .Include(x => x.Product)
+        //        .Include(x => x.Group)
+        //        .Include(x => x.Module)
+        //        .Include(x => x.Agent)
+        //        .Include(x => x.Supervisor)
+
+        //        .OrderBy(x => x.Group.Name).ToList();
+        //    }
+
         //    return res;
         //}
 
-
         public IEnumerable<Tickets> GetAllTickets(int organizationID, AgentScope agentscope, List<int> groupIDs)
         {
-            //NOTE: -------- gives last day of the month: -------------
-            //var lastDateofTheCurrentMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)
-            //var lastDateOfaParticularMonth = DateTime.DaysInMonth(date.Year, date.Month);
-
-            DateTime firstdateoftheMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            DateTime lastdateoftheMonth = firstdateoftheMonth.AddMonths(1).AddSeconds(-1);
+            //    //NOTE: -------- gives last day of the month: -------------
+            //    //var lastDateofTheCurrentMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)
+            //    //var lastDateOfaParticularMonth = DateTime.DaysInMonth(date.Year, date.Month);
 
             List<Tickets> res = new List<Tickets>();
 
             //RequiredPriviliges.Any(x => priviliges.Any(y => y == x))
 
-            if (agentscope == AgentScope.GlobalAccess) 
+            if (agentscope == AgentScope.GlobalAccess)
             {
-                res = FindAll().Where(x => x.OrganizationId == organizationID && (x.CreatedOn >= firstdateoftheMonth && x.CreatedOn<=DateTime.Now))
+                res = FindAll().Where(x => x.OrganizationId == organizationID)
                 .Include(x => x.Organization)
                 .Include(x => x.Type)
                 .Include(x => x.Status)
@@ -75,19 +105,19 @@ namespace Helpdesk.Business.Repositories.DataRepositories
 
             else if (agentscope == AgentScope.GroupAccess)
             {
-            res = FindAll().Where(x => x.OrganizationId == organizationID && groupIDs.Contains(x.GroupId) && (x.CreatedOn >= firstdateoftheMonth && x.CreatedOn <= DateTime.Now))
-            //res = FindAll().Any(x => groupIDs.Any(y => y == x.GroupId))
-                .Include(x => x.Organization)
-                .Include(x => x.Type)
-                .Include(x => x.Status)
-                .Include(x => x.SLAPriority)
-                .Include(x => x.Product)
-                .Include(x => x.Group)
-                .Include(x => x.Module)
-                .Include(x => x.Agent)
-                .Include(x => x.Supervisor)
+                res = FindAll().Where(x => x.OrganizationId == organizationID)
+                    //res = FindAll().Any(x => groupIDs.Any(y => y == x.GroupId))
+                    .Include(x => x.Organization)
+                    .Include(x => x.Type)
+                    .Include(x => x.Status)
+                    .Include(x => x.SLAPriority)
+                    .Include(x => x.Product)
+                    .Include(x => x.Group)
+                    .Include(x => x.Module)
+                    .Include(x => x.Agent)
+                    .Include(x => x.Supervisor)
 
-                .OrderBy(x => x.Group.Name).ToList();
+                    .OrderBy(x => x.Group.Name).ToList();
             }
 
             return res;

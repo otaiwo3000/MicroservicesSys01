@@ -84,40 +84,41 @@ namespace Helpdesk.Service
             services.AddSingleton<ILoggerManagerRepository, LoggerManagerRepository>();
             //services.ConfigureLoggerManagerRepository();
             services.AddControllers();
-            //services.AddControllers().AddNewtonsoftJson();
+            ////services.AddControllers().AddNewtonsoftJson();
 
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HangfireApplication", Version = "v1" });
-            //});
-            // Add Hangfire services.
-            services.AddHangfire(x => x
-                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
-                .UseSimpleAssemblyNameTypeSerializer()
-                .UseRecommendedSerializerSettings()
-                 //.UseSqlServerStorage(Configuration.GetConnectionString("HangfireDBConnection"), new SqlServerStorageOptions
-                 .UseSqlServerStorage(Configuration.GetConnectionString("HelpDeskDBConnection"), new SqlServerStorageOptions
-                 {
-                     CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                     SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                     QueuePollInterval = TimeSpan.Zero,
-                     UseRecommendedIsolationLevel = true,
-                     DisableGlobalLocks = true
-                 }));
+            ////services.AddSwaggerGen(c =>
+            ////{
+            ////    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HangfireApplication", Version = "v1" });
+            ////});
+            //// Add Hangfire services.
+            //services.AddHangfire(x => x
+            //    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+            //    .UseSimpleAssemblyNameTypeSerializer()
+            //    .UseRecommendedSerializerSettings()
+            //     //.UseSqlServerStorage(Configuration.GetConnectionString("HangfireDBConnection"), new SqlServerStorageOptions
+            //     .UseSqlServerStorage(Configuration.GetConnectionString("HelpDeskDBConnection"), new SqlServerStorageOptions
+            //     {
+            //         CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+            //         SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+            //         QueuePollInterval = TimeSpan.Zero,
+            //         UseRecommendedIsolationLevel = true,
+            //         DisableGlobalLocks = true
+            //     }));
 
-            //services.AddHangfire(x =>
-            //{
-            //    x.UseSqlServerStorage(Configuration.GetConnectionString("DBConnection"));
-            //});
+            ////services.AddHangfire(x =>
+            ////{
+            ////    x.UseSqlServerStorage(Configuration.GetConnectionString("DBConnection"));
+            ////});
 
-            // Add the processing server as IHostedService
-            services.AddHangfireServer();
+            //// Add the processing server as IHostedService
+            //services.AddHangfireServer();
 
         }
 
         //// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         //public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IBackgroundJobClient backgroundJobs, IRepositoryWrapper repository, IEmailSender emailSender, IConfiguration config, ILoggerManagerRepository loggermanager)
+        //public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IBackgroundJobClient backgroundJobs, IRepositoryWrapper repository, IEmailSender emailSender, IConfiguration config, ILoggerManagerRepository loggermanager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IRepositoryWrapper repository, IEmailSender emailSender, IConfiguration config, ILoggerManagerRepository loggermanager)
         {
 
             if (env.IsDevelopment())
@@ -137,65 +138,65 @@ namespace Helpdesk.Service
             app.UseCors("CorsPolicy");
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseHangfireDashboard();     // Map the Dashboard to the root URL
-            app.UseHangfireDashboard("/dashboard");     // Map to the '/dashboard' URL
-                                                        ////backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
-                                                        //backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
-            Hangfire.GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 1 });
+            //app.UseHangfireDashboard();     // Map the Dashboard to the root URL
+            //app.UseHangfireDashboard("/dashboard");     // Map to the '/dashboard' URL
+            //                                            ////backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+            //                                            //backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+            //Hangfire.GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 1 });
 
             string ScheduleForSendPendingEmail = Convert.ToString(Configuration["ScheduleForSendPendingEmail:Schedule"]);
             string ScheduleForSendPendingEmail_IsActive = Convert.ToString(Configuration["ScheduleForSendPendingEmail:Active"]);
             int toppendingemails = int.Parse(Configuration["toppendingemails"]);
-            //Misc.PendingEmailCall pec = new Misc.PendingEmailCall(emailSender, repository, loggermanager);
-            ////RecurringJob.AddOrUpdate(() => pec.SendPendingEmail(), "*/1 * * * *");
-            //RecurringJob.AddOrUpdate(() => pec.SendPendingEmail(toppendingemails), ScheduleForSendPendingEmail);
+            ////Misc.PendingEmailCall pec = new Misc.PendingEmailCall(emailSender, repository, loggermanager);
+            //////RecurringJob.AddOrUpdate(() => pec.SendPendingEmail(), "*/1 * * * *");
+            ////RecurringJob.AddOrUpdate(() => pec.SendPendingEmail(toppendingemails), ScheduleForSendPendingEmail);
 
-            if (ScheduleForSendPendingEmail_IsActive.Trim().ToLower() == "true")
-            {
-                NetMailImpl nmi = new NetMailImpl(repository, config, loggermanager);
-                RecurringJob.AddOrUpdate(() => nmi.SendPendingEmails(), ScheduleForSendPendingEmail);
-            }
+            //if (ScheduleForSendPendingEmail_IsActive.Trim().ToLower() == "true")
+            //{
+            //    NetMailImpl nmi = new NetMailImpl(repository, config, loggermanager);
+            //    RecurringJob.AddOrUpdate(() => nmi.SendPendingEmails(), ScheduleForSendPendingEmail);
+            //}
+
+            ////string ScheduleForGetMail = Convert.ToString(Configuration["ScheduleForGetMail:Schedule"]);
+            ////Impl.Emails receiveemail = new Impl.Emails(repository, config, loggermanager);
+            //////RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), "*/1 * * * *");
+            ////RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), ScheduleForGetMail);
 
             //string ScheduleForGetMail = Convert.ToString(Configuration["ScheduleForGetMail:Schedule"]);
-            //Impl.Emails receiveemail = new Impl.Emails(repository, config, loggermanager);
-            ////RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), "*/1 * * * *");
-            //RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), ScheduleForGetMail);
+            //string ScheduleForGetMail_IsActive = Convert.ToString(Configuration["ScheduleForGetMail:Active"]);
 
-            string ScheduleForGetMail = Convert.ToString(Configuration["ScheduleForGetMail:Schedule"]);
-            string ScheduleForGetMail_IsActive = Convert.ToString(Configuration["ScheduleForGetMail:Active"]);
+            //if (ScheduleForGetMail_IsActive.Trim().ToLower() == "true")
+            //{
+            //    Impl.Emails receiveemail = new Impl.Emails(repository, config, loggermanager);
+            //    RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), ScheduleForGetMail);
+            //}
 
-            if (ScheduleForGetMail_IsActive.Trim().ToLower() == "true")
-            {
-                Impl.Emails receiveemail = new Impl.Emails(repository, config, loggermanager);
-                RecurringJob.AddOrUpdate(() => receiveemail.GetMail(), ScheduleForGetMail);
-            }
+            ////string ScheduleForCreateTicketApplyTicketRules = Convert.ToString(Configuration["ScheduleForCreateTicketApplyTicketRules:Schedule"]);
+            ////Impl.TicketCreationFromCustomerEmail createticket = new Impl.TicketCreationFromCustomerEmail(repository, config, loggermanager);
+            //////RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), "*/3 * * * *");
+            ////RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), ScheduleForCreateTicketApplyTicketRules);
 
             //string ScheduleForCreateTicketApplyTicketRules = Convert.ToString(Configuration["ScheduleForCreateTicketApplyTicketRules:Schedule"]);
-            //Impl.TicketCreationFromCustomerEmail createticket = new Impl.TicketCreationFromCustomerEmail(repository, config, loggermanager);
-            ////RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), "*/3 * * * *");
-            //RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), ScheduleForCreateTicketApplyTicketRules);
+            //string ScheduleForCreateTicketApplyTicketRules_IsActive = Convert.ToString(Configuration["ScheduleForCreateTicketApplyTicketRules:Active"]);
 
-            string ScheduleForCreateTicketApplyTicketRules = Convert.ToString(Configuration["ScheduleForCreateTicketApplyTicketRules:Schedule"]);
-            string ScheduleForCreateTicketApplyTicketRules_IsActive = Convert.ToString(Configuration["ScheduleForCreateTicketApplyTicketRules:Active"]);
-
-            if (ScheduleForCreateTicketApplyTicketRules_IsActive.Trim().ToLower() == "true")
-            {
-                Impl.TicketCreationFromCustomerEmail createticket = new Impl.TicketCreationFromCustomerEmail(repository, config, loggermanager);
-                RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), ScheduleForCreateTicketApplyTicketRules);
-            }
-
-            //app.UseHangfireDashboard();
-            //backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
-            //app.UseHangfireDashboard("/dashboard", new DashboardOptions
+            //if (ScheduleForCreateTicketApplyTicketRules_IsActive.Trim().ToLower() == "true")
             //{
-            //    AuthorizationFilters = new[] { new CustomAuthorizeFilter() }
-            //});
+            //    Impl.TicketCreationFromCustomerEmail createticket = new Impl.TicketCreationFromCustomerEmail(repository, config, loggermanager);
+            //    RecurringJob.AddOrUpdate(() => createticket.CreateTicketApplyTicketRules(), ScheduleForCreateTicketApplyTicketRules);
+            //}
+
+            ////app.UseHangfireDashboard();
+            ////backgroundJobs.Enqueue(() => Console.WriteLine("Hello world from Hangfire!"));
+            ////app.UseHangfireDashboard("/dashboard", new DashboardOptions
+            ////{
+            ////    AuthorizationFilters = new[] { new CustomAuthorizeFilter() }
+            ////});
 
             app.UseEndpoints(endpoints =>
             {
                 //endpoints.MapControllers();
                 endpoints.MapControllers().RequireAuthorization();
-                endpoints.MapHangfireDashboard();
+                //endpoints.MapHangfireDashboard();
             });
 
             //for mvc not for web api

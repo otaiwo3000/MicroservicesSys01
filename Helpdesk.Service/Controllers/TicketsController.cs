@@ -43,32 +43,28 @@ namespace Helpdesk.Service.Controllers
 
 
         [HttpGet("getalltickets")]
+        [AllowAnonymous]
         ////[Route("getalltickets")]
-        [CustomAuthorizeFilter(RequiredPrivileges = "getalltickets")]
+        //[CustomAuthorizeFilter(RequiredPrivileges = "getalltickets")]
         public IActionResult AllTickets()
         {
             try
             {
                 _logger.LogInformation($"Inside Tickets>>AllTickets");
 
-                int currentUserOrganization = int.Parse(HttpContext.User.Claims.Where(x => x.Type == "organization").Select(x => x.Value).FirstOrDefault());
-                //string username = HttpContext.User.Claims.Where(x => x.Type == "username").Select(x => x.Value).FirstOrDefault();
-                //Users user = _repository.users.GetUserByUserName(username);
-                //int LogedInUserId = user.UserId;
+                //int currentUserOrganization = int.Parse(HttpContext.User.Claims.Where(x => x.Type == "organization").Select(x => x.Value).FirstOrDefault());
+                int currentUserOrganization = 1;   //temp
 
-                //UsersHierarchy uh = new UsersHierarchy(_logger, _repository, _config);
-                //var uhList = uh.Children(currentUserOrganization, LogedInUserId);
 
-                //////string[] test = new string[] { "2", "7" };
-                ////var convertedToStringList = uhList.ConvertAll(obj => obj.ToString());
-
-                string agentscope = HttpContext.User.Claims.Where(x => x.Type == "agentscope").Select(x => x.Value).FirstOrDefault();
+                //string agentscope = HttpContext.User.Claims.Where(x => x.Type == "agentscope").Select(x => x.Value).FirstOrDefault();
+                string agentscope = "1";   //temp
                 _logger.LogInformation($"agentscope: {agentscope}");
                 //convert strin to Enum eg below:
                 //EnumName VariableName= (EnumName)Enum.Parse(typeof(EnumName), StringValue);
                 AgentScope agentscope2 = (AgentScope)Enum.Parse(typeof(AgentScope), agentscope);
 
-                string groupsString= Convert.ToString(HttpContext.User.Claims.Where(x => x.Type == "Groups").Select(x => x.Value).FirstOrDefault());
+                //string groupsString= Convert.ToString(HttpContext.User.Claims.Where(x => x.Type == "Groups").Select(x => x.Value).FirstOrDefault());
+                string groupsString = "1,2,3,4,5,6,7";   //temp
                 _logger.LogInformation($"agent groups: {groupsString}");
                 var groups = groupsString.Split(',').ToList();
                 var groups2 = groups.Select(x => Int32.Parse(x)).ToList();
