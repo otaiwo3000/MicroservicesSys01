@@ -21,6 +21,9 @@ using UserMgt.Service.DtoModelsFromJoints;
 using UserMgt.Service.Misc;
 using UserMgt.Business.EmailService;
 using UserMgt.Shared.Common.Utilities;
+using RabbitMQ.Client;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace UserMgt.Service.Controllers
 {
@@ -218,7 +221,18 @@ namespace UserMgt.Service.Controllers
                 modelEntity.OrganizationId = currentUserOrganization;   //////////// to be got from the login user
 
                 _repository.users.CreateUser(modelEntity);
-               _repository.Save();
+
+                //-------------- for RabbitMQ Messaging starts -------------------------------
+                var integrationEventData = JsonConvert.SerializeObject(new
+                {
+                    UserId = modelEntity.UserId,
+                    FirstName = modelEntity.FirstName  //update
+                });
+                PublishToMessageQueue("user.add", integrationEventData);
+                //The connection and other RabbitMQ objects are not correctly closed in this block.
+                //-------------- for RabbitMQ Messaging ends ---------------------------
+
+                _repository.Save();
                 _logger.LogInformation($"A new user: {modelEntity.Email} is created.");
 
                 ////var user = _mapper.Map<Aspnetusers>(dtomodel);    //////
@@ -335,6 +349,17 @@ namespace UserMgt.Service.Controllers
                 _mapper.Map(dtomodel, userEntity);
 
                 _repository.users.UpdateUser(userEntity);
+
+                //-------------- for RabbitMQ Messaging starts -------------------------------
+                var integrationEventData = JsonConvert.SerializeObject(new
+                {
+                    //UserId = userEntity.UserId,
+                    Email = userEntity.Email,
+                    FirstName = userEntity.FirstName  //update
+                });
+                PublishToMessageQueue("user.update", integrationEventData);
+                //-------------- for RabbitMQ Messaging ends -------------------------------
+
                 _repository.Save();
                 _logger.LogInformation($"The user object for: {userEntity.Email} is successfully updated");
 
@@ -812,6 +837,26 @@ namespace UserMgt.Service.Controllers
                 _logger.LogError($"Something went wrong inside CurrentUser action: {ex.InnerException}");
                 return StatusCode(500, "Internal server error");
             }
+        }
+
+        private void PublishToMessageQueue(string integrationEvent, string eventData)
+        {
+            // TOOO: Reuse and close connections and channel, etc, 
+            var factory = new ConnectionFactory();          //requires RabbitMQ.Client
+
+            //factory.UserName = "user";
+            //factory.Password = "password";
+            //factory.VirtualHost = "/";
+            factory.HostName = "192.168.43.197";
+            factory.Port = AmqpTcpEndpoint.UseDefaultPort;
+
+            var connection = factory.CreateConnection();
+            var channel = connection.CreateModel();
+            var body = Encoding.UTF8.GetBytes(eventData);
+            channel.BasicPublish(exchange: "user",
+                                             routingKey: integrationEvent,
+                                             basicProperties: null,
+                                             body: body);
         }
 
     }
