@@ -22,15 +22,19 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Helpdesk.Business.Logger;
 using Helpdesk.Business.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Helpdesk.Shared.DataAccess.DBContext;
 
 namespace Helpdesk.Service
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment appHost)
         {
             //LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
+
+            _appHost = appHost;
 
             //added on 4Nov2021
             //  //Reading apsettings.json Configuration without IoC: Using ConfigurationBuilder to load the configuration
@@ -44,6 +48,7 @@ namespace Helpdesk.Service
         //public IConfiguration _configStartup;  //added on 4Nov2021
 
         public IConfiguration Configuration { get; }
+        private IWebHostEnvironment _appHost;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -54,7 +59,8 @@ namespace Helpdesk.Service
             services.ConfigureIISIntegration();
             //services.ConfigureLoggerService();
             services.ConfigureSqlServerContext(Configuration);
-            ////services.AddScoped<HelpDeskDBContext>(provider => provider.GetService<HelpDeskDBContext>());
+            ////////services.AddScoped<HelpDeskDBContext>(provider => provider.GetService<HelpDeskDBContext>());
+            //services.AddDbContext<HelpDeskDBContext>(o => { o.UseSqlite($"Data Source={_appHost.ContentRootPath}/FintrakHelpDeskDB.db"); });
             services.ConfigureSqlServerContextForIdentity(Configuration);
             services.ConfigureIdentityWrapper();
 

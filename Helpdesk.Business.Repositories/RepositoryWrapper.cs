@@ -14,9 +14,12 @@ namespace Helpdesk.Business.Repositories
         #region Interface declaration
 
         private HelpDeskDBContext _helpDeskDBContext;
-        
-        private ITestBulkRepository _testBulk;
-        private IRepositoryBase<TestBulk> _repoBaseTestBulk;
+
+
+
+
+        //private ITestBulkRepository _testBulk;
+        //private IRepositoryBase<TestBulk> _repoBaseTestBulk;
 
         private IOrganizationsRepository _organizations;
         private IRepositoryBase<Organizations> _repoBaseOrgs;
@@ -33,121 +36,121 @@ namespace Helpdesk.Business.Repositories
         private IRolesPrivilegesRepository _rolesprivileges;
         private IRepositoryBase<RolesPrivileges> _repoBaseRolesPrivileges;
 
-        private IAgentEngagementTypesRepository _agentengagementtypes;
-        private IRepositoryBase<AgentEngagementTypes> _repoBaseAgentEngagementTypes;
+        //private IAgentEngagementTypesRepository _agentengagementtypes;
+        //private IRepositoryBase<AgentEngagementTypes> _repoBaseAgentEngagementTypes;
 
-        private IAgentTypesRepository _agenttypes;
-        private IRepositoryBase<AgentTypes> _repoBaseAgentTypes;
+        //private IAgentTypesRepository _agenttypes;
+        //private IRepositoryBase<AgentTypes> _repoBaseAgentTypes;
 
-        private IGroupTypesRepository _grouptypes;
-        private IRepositoryBase<GroupTypes> _repoBaseGroupTypes;
+        //private IGroupTypesRepository _grouptypes;
+        //private IRepositoryBase<GroupTypes> _repoBaseGroupTypes;
 
-        private IGroupsRepository _groups;
-        private IRepositoryBase<Groups> _repoBaseGroups;
+        //private IGroupsRepository _groups;
+        //private IRepositoryBase<Groups> _repoBaseGroups;
 
         private IUsersRepository _users;
         private IRepositoryBase<Users> _repoBaseUsers;
 
-        private IUserGroupRepository _usergroup;
-        private IRepositoryBase<UserGroup> _repoBaseUserGroup;
+        //private IUserGroupRepository _usergroup;
+        //private IRepositoryBase<UserGroup> _repoBaseUserGroup;
 
         private IUserRoleRepository _userrole;
         private IRepositoryBase<UserRole> _repoBaseUserRole;
 
-        private ICustomBusinessDayHoursRepository _custombusinessdayhours;
-        private IRepositoryBase<CustomBusinessDayHours> _repoBaseCustomBusinessDayHours;
+        //private ICustomBusinessDayHoursRepository _custombusinessdayhours;
+        //private IRepositoryBase<CustomBusinessDayHours> _repoBaseCustomBusinessDayHours;
 
-        private IBusinessHoursRepository _businesshours;
-        private IRepositoryBase<BusinessHours> _repoBaseBusinessHours;
+        //private IBusinessHoursRepository _businesshours;
+        //private IRepositoryBase<BusinessHours> _repoBaseBusinessHours;
 
-        private IModulesRepository _modules;
-        private IRepositoryBase<Modules> _repoBaseModules;
+        //private IModulesRepository _modules;
+        //private IRepositoryBase<Modules> _repoBaseModules;
 
-        private IProductsRepository _products;
-        private IRepositoryBase<Products> _repoBaseProducts;
+        //private IProductsRepository _products;
+        //private IRepositoryBase<Products> _repoBaseProducts;
 
-        private IRequestersRepository _requesters;
-        private IRepositoryBase<Requesters> _repoBaseRequesters;
+        //private IRequestersRepository _requesters;
+        //private IRepositoryBase<Requesters> _repoBaseRequesters;
 
-        private ISLAPolicyRepository _slapolicy;
-        private IRepositoryBase<SLAPolicy> _repoBaseSLAPolicy;
+        //private ISLAPolicyRepository _slapolicy;
+        //private IRepositoryBase<SLAPolicy> _repoBaseSLAPolicy;
 
-        private ISLAPriorityRepository _slapriority;
-        private IRepositoryBase<SLAPriority> _repoBaseSLAPriority;
+        //private ISLAPriorityRepository _slapriority;
+        //private IRepositoryBase<SLAPriority> _repoBaseSLAPriority;
 
-        private ISLAPolicyPriorityRepository _slapolicypriority;
-        private IRepositoryBase<SLAPolicyPriority> _repoBaseSLAPolicyPriority;
+        //private ISLAPolicyPriorityRepository _slapolicypriority;
+        //private IRepositoryBase<SLAPolicyPriority> _repoBaseSLAPolicyPriority;
 
-        private ISupportChannelsRepository _supportchannels;
-        private IRepositoryBase<SupportChannels> _repoBaseSupportChannels;
+        //private ISupportChannelsRepository _supportchannels;
+        //private IRepositoryBase<SupportChannels> _repoBaseSupportChannels;
 
-        private ITicketTypesRepository _tickettypes;
-        private IRepositoryBase<TicketTypes> _repoBaseTicketTypes;
+        //private ITicketTypesRepository _tickettypes;
+        //private IRepositoryBase<TicketTypes> _repoBaseTicketTypes;
 
-        private ITicketStatusRepository _ticketstatus;
-        private IRepositoryBase<TicketStatus> _repoBaseTicketStatus;
+        //private ITicketStatusRepository _ticketstatus;
+        //private IRepositoryBase<TicketStatus> _repoBaseTicketStatus;
 
         private ITicketsRepository _tickets;
         private IRepositoryBase<Tickets> _repoBaseTickets;
 
-        private IRuleCasesRepository _rulecases;
-        private IRepositoryBase<RuleCases> _repoBaseRuleCases;
+        //private IRuleCasesRepository _rulecases;
+        //private IRepositoryBase<RuleCases> _repoBaseRuleCases;
 
-        private IRuleConditionsRepository _ruleconditions;
-        private IRepositoryBase<RuleConditions> _repoBaseRuleConditions;
+        //private IRuleConditionsRepository _ruleconditions;
+        //private IRepositoryBase<RuleConditions> _repoBaseRuleConditions;
 
-        private IRuleActionRepository _ruleaction;
-        private IRepositoryBase<RuleAction> _repoBaseRuleAction;
+        //private IRuleActionRepository _ruleaction;
+        //private IRepositoryBase<RuleAction> _repoBaseRuleAction;
 
-        private ITicketRulesRepository _ticketrules;
-        private IRepositoryBase<TicketRules> _repoBaseTicketRules;
+        //private ITicketRulesRepository _ticketrules;
+        //private IRepositoryBase<TicketRules> _repoBaseTicketRules;
 
-        private IRuleTicketCreationRepository _ruleticketcreation;
-        private IRepositoryBase<RuleTicketCreation> _repoBaseRuleTicketCreation;
+        //private IRuleTicketCreationRepository _ruleticketcreation;
+        //private IRepositoryBase<RuleTicketCreation> _repoBaseRuleTicketCreation;
 
         private IPendingEmailRepository _pendingemail;
         private IRepositoryBase<PendingEmail> _repoBasePendingEmail;
 
-        private IProductModulesRepository _productmodules;
-        private IRepositoryBase<ProductModules> _repoBaseProductModules;
+        //private IProductModulesRepository _productmodules;
+        //private IRepositoryBase<ProductModules> _repoBaseProductModules;
 
-        private IInitializedTicketsRepository _initializedtickets;
-        private IRepositoryBase<InitializedTickets> _repoBaseInitializedTickets;
+        //private IInitializedTicketsRepository _initializedtickets;
+        //private IRepositoryBase<InitializedTickets> _repoBaseInitializedTickets;
 
-        private IRuleAction_2Repository _ruleaction_2;
-        private IRepositoryBase<RuleAction_2> _repoBaseRuleAction_2;
+        //private IRuleAction_2Repository _ruleaction_2;
+        //private IRepositoryBase<RuleAction_2> _repoBaseRuleAction_2;
 
-        private IReceivedIssueMailsRepository _receivedissuemails;
-        private IRepositoryBase<ReceivedIssueMails> _repoBaseReceivedIssueMails;
+        //private IReceivedIssueMailsRepository _receivedissuemails;
+        //private IRepositoryBase<ReceivedIssueMails> _repoBaseReceivedIssueMails;
 
-        private IActionPropertyRepository _actionproperties;
-        private IRepositoryBase<ActionProperty> _repoBaseActionProperties;
+        //private IActionPropertyRepository _actionproperties;
+        //private IRepositoryBase<ActionProperty> _repoBaseActionProperties;
 
-        private ICustomMessagesRepository _custommessages;
-        private IRepositoryBase<CustomMessages> _repoBaseCustomMessages;
+        //private ICustomMessagesRepository _custommessages;
+        //private IRepositoryBase<CustomMessages> _repoBaseCustomMessages;
 
-        private IReceivedEmailFilterRepository _receivedemailfilter;
-        private IRepositoryBase<ReceivedEmailFilter> _repoBaseReceivedEmailFilter;
+        //private IReceivedEmailFilterRepository _receivedemailfilter;
+        //private IRepositoryBase<ReceivedEmailFilter> _repoBaseReceivedEmailFilter;
 
-        private IOrganizationDocumentsRepository _organizationdocuments;
-        private IRepositoryBase<OrganizationDocuments> _repoBaseOrganizationDocuments;
+        //private IOrganizationDocumentsRepository _organizationdocuments;
+        //private IRepositoryBase<OrganizationDocuments> _repoBaseOrganizationDocuments;
 
         #endregion
 
 
         #region Interfaces
 
-        public ITestBulkRepository testBulk
-        {
-            get
-            {
-                if (_testBulk == null)
-                {
-                    _testBulk = new TestBulkRepository(_helpDeskDBContext, _repoBaseTestBulk);
-                }
-                return _testBulk;
-            }
-        }
+        //public ITestBulkRepository testBulk
+        //{
+        //    get
+        //    {
+        //        if (_testBulk == null)
+        //        {
+        //            _testBulk = new TestBulkRepository(_helpDeskDBContext, _repoBaseTestBulk);
+        //        }
+        //        return _testBulk;
+        //    }
+        //}
 
         public IOrganizationsRepository organizations
         {
@@ -183,7 +186,7 @@ namespace Helpdesk.Business.Repositories
                 }
                 return _privileges;
             }
-        }      
+        }
 
         public IRolesRepository roles
         {
@@ -209,53 +212,53 @@ namespace Helpdesk.Business.Repositories
             }
         }
 
-        public IAgentEngagementTypesRepository agentengagementtypes
-        {
-            get
-            {
-                if (_agentengagementtypes == null)
-                {
-                    _agentengagementtypes = new AgentEngagementTypesRepository(_helpDeskDBContext, _repoBaseAgentEngagementTypes);
-                }
-                return _agentengagementtypes;
-            }
-        }
+        //public IAgentEngagementTypesRepository agentengagementtypes
+        //{
+        //    get
+        //    {
+        //        if (_agentengagementtypes == null)
+        //        {
+        //            _agentengagementtypes = new AgentEngagementTypesRepository(_helpDeskDBContext, _repoBaseAgentEngagementTypes);
+        //        }
+        //        return _agentengagementtypes;
+        //    }
+        //}
 
-        public IAgentTypesRepository agenttypes
-        {
-            get
-            {
-                if (_agenttypes == null)
-                {
-                    _agenttypes = new AgentTypesRepository(_helpDeskDBContext, _repoBaseAgentTypes);
-                }
-                return _agenttypes;
-            }
-        }
-      
-        public IGroupTypesRepository grouptypes
-        {
-            get
-            {
-                if (_grouptypes == null)
-                {
-                    _grouptypes = new GroupTypesRepository(_helpDeskDBContext, _repoBaseGroupTypes);
-                }
-                return _grouptypes;
-            }
-        }
+        //public IAgentTypesRepository agenttypes
+        //{
+        //    get
+        //    {
+        //        if (_agenttypes == null)
+        //        {
+        //            _agenttypes = new AgentTypesRepository(_helpDeskDBContext, _repoBaseAgentTypes);
+        //        }
+        //        return _agenttypes;
+        //    }
+        //}
 
-        public IGroupsRepository groups
-        {
-            get
-            {
-                if (_groups == null)
-                {
-                    _groups = new GroupsRepository(_helpDeskDBContext, _repoBaseGroups);
-                }
-                return _groups;
-            }
-        }
+        //public IGroupTypesRepository grouptypes
+        //{
+        //    get
+        //    {
+        //        if (_grouptypes == null)
+        //        {
+        //            _grouptypes = new GroupTypesRepository(_helpDeskDBContext, _repoBaseGroupTypes);
+        //        }
+        //        return _grouptypes;
+        //    }
+        //}
+
+        //public IGroupsRepository groups
+        //{
+        //    get
+        //    {
+        //        if (_groups == null)
+        //        {
+        //            _groups = new GroupsRepository(_helpDeskDBContext, _repoBaseGroups);
+        //        }
+        //        return _groups;
+        //    }
+        //}
 
         public IUsersRepository users
         {
@@ -269,17 +272,17 @@ namespace Helpdesk.Business.Repositories
             }
         }
 
-        public IUserGroupRepository usergroup
-        {
-            get
-            {
-                if (_usergroup == null)
-                {
-                    _usergroup = new UserGroupRepository(_helpDeskDBContext, _repoBaseUserGroup);
-                }
-                return _usergroup;
-            }
-        }
+        //public IUserGroupRepository usergroup
+        //{
+        //    get
+        //    {
+        //        if (_usergroup == null)
+        //        {
+        //            _usergroup = new UserGroupRepository(_helpDeskDBContext, _repoBaseUserGroup);
+        //        }
+        //        return _usergroup;
+        //    }
+        //}
 
         public IUserRoleRepository userrole
         {
@@ -293,137 +296,137 @@ namespace Helpdesk.Business.Repositories
             }
         }
 
-        public ICustomBusinessDayHoursRepository custombusinessdayhours
-        {
-            get
-            {
-                if (_custombusinessdayhours == null)
-                {
-                    _custombusinessdayhours = new CustomBusinessDayHoursRepository(_helpDeskDBContext, _repoBaseCustomBusinessDayHours);
-                }
-                return _custombusinessdayhours;
-            }
-        }
+        //public ICustomBusinessDayHoursRepository custombusinessdayhours
+        //{
+        //    get
+        //    {
+        //        if (_custombusinessdayhours == null)
+        //        {
+        //            _custombusinessdayhours = new CustomBusinessDayHoursRepository(_helpDeskDBContext, _repoBaseCustomBusinessDayHours);
+        //        }
+        //        return _custombusinessdayhours;
+        //    }
+        //}
 
-        public IBusinessHoursRepository businesshours
-        {
-            get
-            {
-                if (_businesshours == null)
-                {
-                    _businesshours = new BusinessHoursRepository(_helpDeskDBContext, _repoBaseBusinessHours);
-                }
-                return _businesshours;
-            }
-        }
+        //public IBusinessHoursRepository businesshours
+        //{
+        //    get
+        //    {
+        //        if (_businesshours == null)
+        //        {
+        //            _businesshours = new BusinessHoursRepository(_helpDeskDBContext, _repoBaseBusinessHours);
+        //        }
+        //        return _businesshours;
+        //    }
+        //}
 
-        public IModulesRepository modules
-        {
-            get
-            {
-                if (_modules == null)
-                {
-                    _modules = new ModulesRepository(_helpDeskDBContext, _repoBaseModules);
-                }
-                return _modules;
-            }
-        }
+        //public IModulesRepository modules
+        //{
+        //    get
+        //    {
+        //        if (_modules == null)
+        //        {
+        //            _modules = new ModulesRepository(_helpDeskDBContext, _repoBaseModules);
+        //        }
+        //        return _modules;
+        //    }
+        //}
 
-        public IProductsRepository products
-        {
-            get
-            {
-                if (_products == null)
-                {
-                    _products = new ProductsRepository(_helpDeskDBContext, _repoBaseProducts);
-                }
-                return _products;
-            }
-        }
+        //public IProductsRepository products
+        //{
+        //    get
+        //    {
+        //        if (_products == null)
+        //        {
+        //            _products = new ProductsRepository(_helpDeskDBContext, _repoBaseProducts);
+        //        }
+        //        return _products;
+        //    }
+        //}
 
-        public IRequestersRepository requesters
-        {
-            get
-            {
-                if (_requesters == null)
-                {
-                    _requesters = new RequestersRepository(_helpDeskDBContext, _repoBaseRequesters);
-                }
-                return _requesters;
-            }
-        }
+        //public IRequestersRepository requesters
+        //{
+        //    get
+        //    {
+        //        if (_requesters == null)
+        //        {
+        //            _requesters = new RequestersRepository(_helpDeskDBContext, _repoBaseRequesters);
+        //        }
+        //        return _requesters;
+        //    }
+        //}
 
-        public ISLAPolicyRepository slapolicy
-        {
-            get
-            {
-                if (_slapolicy == null)
-                {
-                    _slapolicy = new SLAPolicyRepository(_helpDeskDBContext, _repoBaseSLAPolicy);
-                }
-                return _slapolicy;
-            }
-        }
+        //public ISLAPolicyRepository slapolicy
+        //{
+        //    get
+        //    {
+        //        if (_slapolicy == null)
+        //        {
+        //            _slapolicy = new SLAPolicyRepository(_helpDeskDBContext, _repoBaseSLAPolicy);
+        //        }
+        //        return _slapolicy;
+        //    }
+        //}
 
-        public ISLAPriorityRepository slapriority
-        {
-            get
-            {
-                if (_slapriority == null)
-                {
-                    _slapriority = new SLAPriorityRepository(_helpDeskDBContext, _repoBaseSLAPriority);
-                }
-                return _slapriority;
-            }
-        }
+        //public ISLAPriorityRepository slapriority
+        //{
+        //    get
+        //    {
+        //        if (_slapriority == null)
+        //        {
+        //            _slapriority = new SLAPriorityRepository(_helpDeskDBContext, _repoBaseSLAPriority);
+        //        }
+        //        return _slapriority;
+        //    }
+        //}
 
-        public ISLAPolicyPriorityRepository slapolicypriority
-        {
-            get
-            {
-                if (_slapolicypriority == null)
-                {
-                    _slapolicypriority = new SLAPolicyPriorityRepository(_helpDeskDBContext, _repoBaseSLAPolicyPriority);
-                }
-                return _slapolicypriority;
-            }
-        }
+        //public ISLAPolicyPriorityRepository slapolicypriority
+        //{
+        //    get
+        //    {
+        //        if (_slapolicypriority == null)
+        //        {
+        //            _slapolicypriority = new SLAPolicyPriorityRepository(_helpDeskDBContext, _repoBaseSLAPolicyPriority);
+        //        }
+        //        return _slapolicypriority;
+        //    }
+        //}
 
-        public ISupportChannelsRepository supportchannels
-        {
-            get
-            {
-                if (_supportchannels == null)
-                {
-                    _supportchannels = new SupportChannelsRepository(_helpDeskDBContext, _repoBaseSupportChannels);
-                }
-                return _supportchannels;
-            }
-        }
+        //public ISupportChannelsRepository supportchannels
+        //{
+        //    get
+        //    {
+        //        if (_supportchannels == null)
+        //        {
+        //            _supportchannels = new SupportChannelsRepository(_helpDeskDBContext, _repoBaseSupportChannels);
+        //        }
+        //        return _supportchannels;
+        //    }
+        //}
 
-        public ITicketTypesRepository tickettypes
-        {
-            get
-            {
-                if (_tickettypes == null)
-                {
-                    _tickettypes = new TicketTypesRepository(_helpDeskDBContext, _repoBaseTicketTypes);
-                }
-                return _tickettypes;
-            }
-        }
+        //public ITicketTypesRepository tickettypes
+        //{
+        //    get
+        //    {
+        //        if (_tickettypes == null)
+        //        {
+        //            _tickettypes = new TicketTypesRepository(_helpDeskDBContext, _repoBaseTicketTypes);
+        //        }
+        //        return _tickettypes;
+        //    }
+        //}
 
-        public ITicketStatusRepository ticketstatus
-        {
-            get
-            {
-                if (_ticketstatus == null)
-                {
-                    _ticketstatus = new TicketStatusRepository(_helpDeskDBContext, _repoBaseTicketStatus);
-                }
-                return _ticketstatus;
-            }
-        }
+        //public ITicketStatusRepository ticketstatus
+        //{
+        //    get
+        //    {
+        //        if (_ticketstatus == null)
+        //        {
+        //            _ticketstatus = new TicketStatusRepository(_helpDeskDBContext, _repoBaseTicketStatus);
+        //        }
+        //        return _ticketstatus;
+        //    }
+        //}
 
         public ITicketsRepository tickets
         {
@@ -437,65 +440,65 @@ namespace Helpdesk.Business.Repositories
             }
         }
 
-        public IRuleCasesRepository rulecases
-        {
-            get
-            {
-                if (_rulecases == null)
-                {
-                    _rulecases = new RuleCasesRepository(_helpDeskDBContext, _repoBaseRuleCases);
-                }
-                return _rulecases;
-            }
-        }
+        //public IRuleCasesRepository rulecases
+        //{
+        //    get
+        //    {
+        //        if (_rulecases == null)
+        //        {
+        //            _rulecases = new RuleCasesRepository(_helpDeskDBContext, _repoBaseRuleCases);
+        //        }
+        //        return _rulecases;
+        //    }
+        //}
 
-        public IRuleConditionsRepository ruleconditions
-        {
-            get
-            {
-                if (_ruleconditions == null)
-                {
-                    _ruleconditions = new RuleConditionsRepository(_helpDeskDBContext, _repoBaseRuleConditions);
-                }
-                return _ruleconditions;
-            }
-        }
+        //public IRuleConditionsRepository ruleconditions
+        //{
+        //    get
+        //    {
+        //        if (_ruleconditions == null)
+        //        {
+        //            _ruleconditions = new RuleConditionsRepository(_helpDeskDBContext, _repoBaseRuleConditions);
+        //        }
+        //        return _ruleconditions;
+        //    }
+        //}
 
-        public IRuleActionRepository ruleaction
-        {
-            get
-            {
-                if (_ruleaction == null)
-                {
-                    _ruleaction = new RuleActionRepository(_helpDeskDBContext, _repoBaseRuleAction);
-                }
-                return _ruleaction;
-            }
-        }
+        //public IRuleActionRepository ruleaction
+        //{
+        //    get
+        //    {
+        //        if (_ruleaction == null)
+        //        {
+        //            _ruleaction = new RuleActionRepository(_helpDeskDBContext, _repoBaseRuleAction);
+        //        }
+        //        return _ruleaction;
+        //    }
+        //}
 
-        public ITicketRulesRepository ticketrules
-        {
-            get
-            {
-                if (_ticketrules == null)
-                {
-                    _ticketrules = new TicketRulesRepository(_helpDeskDBContext, _repoBaseTicketRules);
-                }
-                return _ticketrules;
-            }
-        }
+        //public ITicketRulesRepository ticketrules
+        //{
+        //    get
+        //    {
+        //        if (_ticketrules == null)
+        //        {
+        //            _ticketrules = new TicketRulesRepository(_helpDeskDBContext, _repoBaseTicketRules);
+        //        }
+        //        return _ticketrules;
+        //    }
+        //}
 
-        public IRuleTicketCreationRepository ruleticketcreation
-        {
-            get
-            {
-                if (_ruleticketcreation == null)
-                {
-                    _ruleticketcreation = new RuleTicketCreationRepository(_helpDeskDBContext, _repoBaseRuleTicketCreation);
-                }
-                return _ruleticketcreation;
-            }
-        }
+        //public IRuleTicketCreationRepository ruleticketcreation
+        //{
+        //    get
+        //    {
+        //        if (_ruleticketcreation == null)
+        //        {
+        //            _ruleticketcreation = new RuleTicketCreationRepository(_helpDeskDBContext, _repoBaseRuleTicketCreation);
+        //        }
+        //        return _ruleticketcreation;
+        //    }
+        //}
 
         public IPendingEmailRepository pendingemail
         {
@@ -509,101 +512,101 @@ namespace Helpdesk.Business.Repositories
             }
         }
 
-        public IProductModulesRepository productmodules
-        {
-            get
-            {
-                if (_productmodules == null)
-                {
-                    _productmodules = new ProductModulesRepository(_helpDeskDBContext, _repoBaseProductModules);
-                }
-                return _productmodules;
-            }
-        }
+        //public IProductModulesRepository productmodules
+        //{
+        //    get
+        //    {
+        //        if (_productmodules == null)
+        //        {
+        //            _productmodules = new ProductModulesRepository(_helpDeskDBContext, _repoBaseProductModules);
+        //        }
+        //        return _productmodules;
+        //    }
+        //}
 
-        public IInitializedTicketsRepository initializedtickets
-        {
-            get
-            {
-                if (_initializedtickets == null)
-                {
-                    _initializedtickets = new InitializedTicketsRepository(_helpDeskDBContext, _repoBaseInitializedTickets);
-                }
-                return _initializedtickets;
-            }
-        }
+        //public IInitializedTicketsRepository initializedtickets
+        //{
+        //    get
+        //    {
+        //        if (_initializedtickets == null)
+        //        {
+        //            _initializedtickets = new InitializedTicketsRepository(_helpDeskDBContext, _repoBaseInitializedTickets);
+        //        }
+        //        return _initializedtickets;
+        //    }
+        //}
 
-        public IRuleAction_2Repository ruleaction_2
-        {
-            get
-            {
-                if (_ruleaction_2 == null)
-                {
-                    _ruleaction_2 = new RuleAction_2Repository(_helpDeskDBContext, _repoBaseRuleAction_2);
-                }
-                return _ruleaction_2;
-            }
-        }
+        //public IRuleAction_2Repository ruleaction_2
+        //{
+        //    get
+        //    {
+        //        if (_ruleaction_2 == null)
+        //        {
+        //            _ruleaction_2 = new RuleAction_2Repository(_helpDeskDBContext, _repoBaseRuleAction_2);
+        //        }
+        //        return _ruleaction_2;
+        //    }
+        //}
 
-        public IReceivedIssueMailsRepository receivedissuemails
-        {
-            get
-            {
-                if (_receivedissuemails == null)
-                {
-                    _receivedissuemails = new ReceivedIssueMailsRepository(_helpDeskDBContext, _repoBaseReceivedIssueMails);
-                }
-                return _receivedissuemails;
-            }
-        }
+        //public IReceivedIssueMailsRepository receivedissuemails
+        //{
+        //    get
+        //    {
+        //        if (_receivedissuemails == null)
+        //        {
+        //            _receivedissuemails = new ReceivedIssueMailsRepository(_helpDeskDBContext, _repoBaseReceivedIssueMails);
+        //        }
+        //        return _receivedissuemails;
+        //    }
+        //}
 
-        public IActionPropertyRepository actionproperties
-        {
-            get
-            {
-                if (_actionproperties == null)
-                {
-                    _actionproperties = new ActionPropertyRepository(_helpDeskDBContext, _repoBaseActionProperties);
-                }
-                return _actionproperties;
-            }
-        }
+        //public IActionPropertyRepository actionproperties
+        //{
+        //    get
+        //    {
+        //        if (_actionproperties == null)
+        //        {
+        //            _actionproperties = new ActionPropertyRepository(_helpDeskDBContext, _repoBaseActionProperties);
+        //        }
+        //        return _actionproperties;
+        //    }
+        //}
 
-        public ICustomMessagesRepository custommessages
-        {
-            get
-            {
-                if (_custommessages == null)
-                {
-                    _custommessages = new CustomMessagesRepository(_helpDeskDBContext, _repoBaseCustomMessages);
-                }
-                return _custommessages;
-            }
-        }
+        //public ICustomMessagesRepository custommessages
+        //{
+        //    get
+        //    {
+        //        if (_custommessages == null)
+        //        {
+        //            _custommessages = new CustomMessagesRepository(_helpDeskDBContext, _repoBaseCustomMessages);
+        //        }
+        //        return _custommessages;
+        //    }
+        //}
 
-        public IReceivedEmailFilterRepository receivedemailfilter
-        {
-            get
-            {
-                if (_receivedemailfilter == null)
-                {
-                    _receivedemailfilter = new ReceivedEmailFilterRepository(_helpDeskDBContext, _repoBaseReceivedEmailFilter);
-                }
-                return _receivedemailfilter;
-            }
-        }
+        //public IReceivedEmailFilterRepository receivedemailfilter
+        //{
+        //    get
+        //    {
+        //        if (_receivedemailfilter == null)
+        //        {
+        //            _receivedemailfilter = new ReceivedEmailFilterRepository(_helpDeskDBContext, _repoBaseReceivedEmailFilter);
+        //        }
+        //        return _receivedemailfilter;
+        //    }
+        //}
 
-        public IOrganizationDocumentsRepository organizationdocuments
-        {
-            get
-            {
-                if (_organizationdocuments == null)
-                {
-                    _organizationdocuments = new OrganizationDocumentsRepository(_helpDeskDBContext, _repoBaseOrganizationDocuments);
-                }
-                return _organizationdocuments;
-            }
-        }
+        //public IOrganizationDocumentsRepository organizationdocuments
+        //{
+        //    get
+        //    {
+        //        if (_organizationdocuments == null)
+        //        {
+        //            _organizationdocuments = new OrganizationDocumentsRepository(_helpDeskDBContext, _repoBaseOrganizationDocuments);
+        //        }
+        //        return _organizationdocuments;
+        //    }
+        //}
 
         #endregion
 

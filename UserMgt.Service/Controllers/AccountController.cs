@@ -102,6 +102,14 @@ namespace UserMgt.Service.Controllers
                     _logger.LogWarn($"Invalid username or password");
                     return StatusCode(401, "Invalid username or password");
                 }
+
+
+                //var cObj = new CustomClaims(_repository);
+                //var authClaims = cObj.UserRolesGroupsClaims(user.UserName);
+
+
+
+
             }
             catch (Exception ex)
             {

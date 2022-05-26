@@ -27,7 +27,7 @@ namespace Helpdesk.Service.Impl
             //List<UserRole> currentUser_Roles = new List<UserRole>();
             List<UserRole>  currentUser_Roles =  _repository.userrole.GetUserRolesByUserId(user.UserId).ToList();
 
-            List<UserGroup>  currentUser_Groups = _repository.usergroup.GetUserGroupsByUserId(user.UserId).ToList();
+            //List<UserGroup>  currentUser_Groups = _repository.usergroup.GetUserGroupsByUserId(user.UserId).ToList();
 
             ////int[] currentUser_Roles = new int[] { 1, 2, 3 };
             //List<Roles> currentUser_Roles = new List<Roles>
@@ -47,11 +47,9 @@ namespace Helpdesk.Service.Impl
                     new Claim("username", user.Email),
                     new Claim("displaynames", user.FirstName + " " + user.LastName),
                     new Claim("organization", user.OrganizationId.ToString()),
-                    new Claim("agentscope", user.AgentScope.ToString()),
-                    //new Claim("agentengagementtype", user.AgentEngagementType.ToString()),
-                    //new Claim("agenttype", user.AgentType.ToString()),
-                    new Claim("agentengagementtype", user.AgentEngagementTypeId.ToString()),
-                    new Claim("agenttype", user.AgentTypeId.ToString()),
+                   // new Claim("agentscope", user.AgentScope.ToString()),               
+                    //new Claim("agentengagementtype", user.AgentEngagementTypeId.ToString()),
+                    //new Claim("agenttype", user.AgentTypeId.ToString()),
                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
          
@@ -61,10 +59,10 @@ namespace Helpdesk.Service.Impl
                 authClaims.Add(new Claim("CustomRoles", Convert.ToString(uRole.RoleId)));
             }
 
-            foreach (var uGroup in currentUser_Groups)
-            {
-                authClaims.Add(new Claim("Groups", Convert.ToString(uGroup.GroupId)));
-            }
+            //foreach (var uGroup in currentUser_Groups)
+            //{
+            //    authClaims.Add(new Claim("Groups", Convert.ToString(uGroup.GroupId)));
+            //}
 
             return authClaims;
         }

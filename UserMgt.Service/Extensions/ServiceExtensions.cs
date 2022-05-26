@@ -47,10 +47,17 @@ namespace UserMgt.Service.Extensions
         ////    services.AddSingleton<ILoggerManager, LoggerManager>();
         ////}
 
+        //public static void ConfigureSqlServerContext(this IServiceCollection services, IConfiguration config)
+        //{
+        //    var connectionString = config["ConnectionStrings:UserMgtDBConnection"];
+        //    services.AddDbContext<UserMgtDBContext>(o => o.UseSqlServer(connectionString));
+        //    //services.AddDbContextPool<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
+        //}
+
         public static void ConfigureSqlServerContext(this IServiceCollection services, IConfiguration config)
         {
-            var connectionString = config["ConnectionStrings:UserMgtDBConnection"];
-            services.AddDbContext<UserMgtDBContext>(o => o.UseSqlServer(connectionString));
+            var connectionString = config["ConnectionStrings:UserMgtDBConnection2"];
+            services.AddDbContext<UserMgtDBContext>(o => o.UseSqlite(connectionString));
             //services.AddDbContextPool<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
         }
 
@@ -62,8 +69,9 @@ namespace UserMgt.Service.Extensions
 
         public static void ConfigureSqlServerContextForIdentity(this IServiceCollection services, IConfiguration config)
         {
-            var connectionString = config["ConnectionStrings:UserMgtDBConnection"];
-            services.AddDbContext<AspnetIdentityDBContext>(o => o.UseSqlServer(connectionString));
+            var connectionString = config["ConnectionStrings:UserMgtDBConnection2"];
+            //services.AddDbContext<AspnetIdentityDBContext>(o => o.UseSqlServer(connectionString));
+            services.AddDbContext<AspnetIdentityDBContext>(o => o.UseSqlite(connectionString));
         }
 
         public static void ConfigureIdentityWrapper(this IServiceCollection services)

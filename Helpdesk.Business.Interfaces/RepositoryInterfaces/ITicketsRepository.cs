@@ -16,10 +16,10 @@ namespace Helpdesk.Business.Interfaces.RepositoryInterfaces
         void CreateTicket(Tickets ts);
         void UpdateTicket(Tickets ts);
         void DeleteTicket(Tickets ts);
-        List<TicketStatusReport> TicketStatusReportResult(int organizationID, AgentScope agentscope, List<int> groupIDs, List<TicketStatus> ticketstatus, string priority, DateTime startdate, DateTime enddate);
-        List<GroupTicketStatus> TicketStatusReportResultGroupBase(int organizationID, AgentScope agentscope, List<int> AllgroupIDs, string priority, DateTime startdate, DateTime enddate);
-        IEnumerable<Tickets> TicketsFilter(int organizationID, AgentScope agentscope, List<int> CurrentUsergroupIDs, List<int> groupids, List<int> productids, List<int> statusids, List<int> priorityids, DateTime startdate, DateTime enddate);
-        IEnumerable<Tickets> TicketsFilter_2(int organizationID, AgentScope agentscope, List<int> CurrentUsergroupIDs, string groupid, string productid, string statusid, string priorityid, DateTime startdate, DateTime enddate);
+        //List<TicketStatusReport> TicketStatusReportResult(int organizationID, AgentScope agentscope, List<int> groupIDs, List<TicketStatus> ticketstatus, string priority, DateTime startdate, DateTime enddate);
+        //List<GroupTicketStatus> TicketStatusReportResultGroupBase(int organizationID, AgentScope agentscope, List<int> AllgroupIDs, string priority, DateTime startdate, DateTime enddate);
+        //IEnumerable<Tickets> TicketsFilter(int organizationID, AgentScope agentscope, List<int> CurrentUsergroupIDs, List<int> groupids, List<int> productids, List<int> statusids, List<int> priorityids, DateTime startdate, DateTime enddate);
+        //IEnumerable<Tickets> TicketsFilter_2(int organizationID, AgentScope agentscope, List<int> CurrentUsergroupIDs, string groupid, string productid, string statusid, string priorityid, DateTime startdate, DateTime enddate);
 
         Tickets GetaTicketBySysGeneratedTicketIdWithNoDetail(int organizationID, string SysGeneratedTicketId);
         Tickets GetaTicketByTicketSubjectWithNoDetail(int organizationID, string ticketsubject, string extractedticketsubject);

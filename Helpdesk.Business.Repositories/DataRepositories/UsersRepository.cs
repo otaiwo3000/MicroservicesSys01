@@ -21,7 +21,8 @@ namespace Helpdesk.Business.Repositories.DataRepositories
 
         public  IEnumerable<Users> GetAllUsers(int organizationID)
         {
-            var res = FindAll().Where(x => x.OrganizationId == organizationID).Include(x => x.Organization).OrderBy(y => y.Organization.Name).ToList();
+            //var res = FindAll().Where(x => x.OrganizationId == organizationID).Include(x => x.Organization).OrderBy(y => y.Organization.Name).ToList();
+            var res = FindAll().Where(x => x.OrganizationId == organizationID).ToList();
             return res;
         }
 
@@ -38,11 +39,11 @@ namespace Helpdesk.Business.Repositories.DataRepositories
 
         public Users GetUserWithDetails(int organizationID, int Id)
         {
-            return FindByCondition(x => x.OrganizationId == organizationID && x.UserId == Id)
-                .Include(y => y.Organization)
-                .Include(y => y.AgentEngagementType)
-                .Include(y => y.AgentType)
-                .FirstOrDefault();
+            return FindByCondition(x => x.OrganizationId == organizationID && x.UserId == Id).FirstOrDefault();
+            //.Include(y => y.Organization)
+            //.Include(y => y.AgentEngagementType)
+            //.Include(y => y.AgentType)
+            //.FirstOrDefault();
         }
 
         public void CreateUser(Users user)

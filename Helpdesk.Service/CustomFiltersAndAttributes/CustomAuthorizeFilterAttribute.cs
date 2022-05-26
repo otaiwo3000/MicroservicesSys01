@@ -88,27 +88,28 @@ namespace Helpdesk.Service.CustomAttributes
 
         public List<int> Rolesprivileges(AuthorizationFilterContext context, List<long> userRoles_long)
         {
-            //var privilleges = _repository.rolesprivileges.GetRolesPrivilegesByRoles(userRoles_long).Select(x => x.PrivilegeId).ToList();
+            //////var privilleges = _repository.rolesprivileges.GetRolesPrivilegesByRoles(userRoles_long).Select(x => x.PrivilegeId).ToList();
 
-            //var privsObj = new RolesPrivs();
-            //var privilleges = privsObj.GetRolesPrivilegesByRoles(userRoles_long).Select(x => x.PrivilegeId).ToList();
+            //////var privsObj = new RolesPrivs();
+            //////var privilleges = privsObj.GetRolesPrivilegesByRoles(userRoles_long).Select(x => x.PrivilegeId).ToList();
 
-            var privsObj = new RolesAndPrivileges();
-            var privilleges = privsObj.GetRolesPrivilegesByRoles(context, userRoles_long).Select(x => x.PrivilegeId).ToList();
-
-            //List<int> privilleges = new List<int> { 1, 2 };
+            //var privsObj = new RolesAndPrivileges();
+            //var privilleges = privsObj.GetRolesPrivilegesByRoles(context, userRoles_long).Select(x => x.PrivilegeId).ToList();
+            List<int> privilleges =null;
+            //////List<int> privilleges = new List<int> { 1, 2 };
             return privilleges;
         }
 
         public List<int> PrivilegesByNames(AuthorizationFilterContext context, List<string> prilegenames)
         {
-            ////var prilegenames = new List<string> { "createuser", "viewusers" };
-            //var privilleges = _repository.privileges.GetPrivilegesByNames(prilegenames);
-            //List<int> intPrivileges = privilleges.Select(x => x.PrivilegeId).ToList();
+            ////////var prilegenames = new List<string> { "createuser", "viewusers" };
+            //////var privilleges = _repository.privileges.GetPrivilegesByNames(prilegenames);
+            //////List<int> intPrivileges = privilleges.Select(x => x.PrivilegeId).ToList();
 
-            var privsObj = new RolesAndPrivileges();
-            List<int> intPrivileges = privsObj.GetPrivilegesByNames(context, prilegenames).Select(x => x.PrivilegeId).ToList();
+            //var privsObj = new RolesAndPrivileges();
+            //List<int> intPrivileges = privsObj.GetPrivilegesByNames(context, prilegenames).Select(x => x.PrivilegeId).ToList();
 
+            List<int> intPrivileges = new List<int>();
             return intPrivileges;
         }
 

@@ -30,27 +30,27 @@ namespace Helpdesk.Shared.Entities
         [Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
-        public string MiddleName { get; set; }
+        //public string MiddleName { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
         public string Gender { get; set; }
 
-        public string Photo { get; set; }
-        public string Signature { get; set; }
+        //public string Photo { get; set; }
+        //public string Signature { get; set; }
 
-        [Required(ErrorMessage = "Agent Type is required")]
-        public int AgentTypeId { get; set; }
-        public virtual AgentTypes AgentType { get; set; }
+        //[Required(ErrorMessage = "Agent Type is required")]
+        //public int AgentTypeId { get; set; }
+        //public virtual AgentTypes AgentType { get; set; }
 
-        [Required(ErrorMessage = "Agent Engagement Type is required")]
-        public int AgentEngagementTypeId { get; set; }
-        public virtual AgentEngagementTypes AgentEngagementType { get; set; }
+        //[Required(ErrorMessage = "Agent Engagement Type is required")]
+        //public int AgentEngagementTypeId { get; set; }
+        //public virtual AgentEngagementTypes AgentEngagementType { get; set; }
 
-        public AgentScope AgentScope { get; set; } = AgentScope.RestrictedAccess; //(AgentScope)3;
-        public AgentStatus Status { get; set; } = AgentStatus.Active;  //(AgentStatus)1;
+        //public AgentScope AgentScope { get; set; } = AgentScope.RestrictedAccess; //(AgentScope)3;
+        //public AgentStatus Status { get; set; } = AgentStatus.Active;  //(AgentStatus)1;
         public int SupervisorId { get; set; }   //= loginId
         public int OrganizationId { get; set; }
-        public virtual Organizations Organization { get; set; }
+        //public virtual Organizations Organization { get; set; }
 
         public int EntityId
         {

@@ -693,3 +693,69 @@ File name: 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'
 2022-03-28 12:29:28.7444 Info Found 21 configuration items
 2022-03-28 12:29:28.7616 Info Configuration initialized.
 2022-03-28 12:29:28.7736 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2022-05-18 22:40:21.6246 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-18 22:40:21.6616 Info Loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-18 22:40:21.7299 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.1.1203. Product version: 1.6.1.
+2022-05-18 22:40:21.7372 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll succeeded!
+2022-05-18 22:40:21.7439 Info Message Template Auto Format enabled
+2022-05-18 22:40:21.7538 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-18 22:40:21.7665 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.Web.AspNetCore
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+
+File name: 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly assemblyContext, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+
+
+   --- End of inner exception stack trace ---
+2022-05-18 22:40:21.8205 Info Adding target FileTarget(Name=helpdesklogs)
+2022-05-18 22:40:21.8494 Info Found 21 configuration items
+2022-05-18 22:40:21.8621 Info Configuration initialized.
+2022-05-18 22:40:21.8697 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2022-05-19 00:19:14.1147 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-19 00:19:14.1269 Info Loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-19 00:19:14.3284 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.1.1203. Product version: 1.6.1.
+2022-05-19 00:19:14.3407 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll succeeded!
+2022-05-19 00:19:14.3557 Info Message Template Auto Format enabled
+2022-05-19 00:19:14.3764 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-19 00:19:14.3992 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.Web.AspNetCore
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+
+File name: 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly assemblyContext, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+
+
+   --- End of inner exception stack trace ---
+2022-05-19 00:19:14.5787 Info Adding target FileTarget(Name=helpdesklogs)
+2022-05-19 00:19:14.6755 Info Found 21 configuration items
+2022-05-19 00:19:14.7003 Info Configuration initialized.
+2022-05-19 00:19:14.7132 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2022-05-21 09:52:31.7541 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-21 09:52:31.7925 Info Loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll
+2022-05-21 09:52:32.6226 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.1.1203. Product version: 1.6.1.
+2022-05-21 09:52:32.6383 Info Auto loading assembly file: /app/bin/Debug/netcoreapp3.1/NLog.Extensions.Logging.dll succeeded!
+2022-05-21 09:52:32.6537 Info Message Template Auto Format enabled
+2022-05-21 09:52:32.6930 Info Loading assembly: NLog.Web.AspNetCore
+2022-05-21 09:52:32.7951 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: NLog.Web.AspNetCore
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+
+File name: 'NLog.Web.AspNetCore, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly assemblyContext, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Internal.AssemblyHelpers.LoadFromName(String assemblyName)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssembly(String assemblyName, String prefix)
+
+
+   --- End of inner exception stack trace ---
+2022-05-21 09:52:32.9672 Info Adding target FileTarget(Name=helpdesklogs)
+2022-05-21 09:52:33.0478 Info Found 21 configuration items
+2022-05-21 09:52:33.0748 Info Configuration initialized.
+2022-05-21 09:52:33.0877 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.

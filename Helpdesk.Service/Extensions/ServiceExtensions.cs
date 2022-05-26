@@ -45,11 +45,14 @@ namespace Helpdesk.Service.Extensions
         //    services.AddSingleton<ILoggerManager, LoggerManager>();
         //}
 
+     
         public static void ConfigureSqlServerContext(this IServiceCollection services, IConfiguration config)
         {
-            var connectionString = config["ConnectionStrings:HelpDeskDBConnection"];
-            services.AddDbContext<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
-            //services.AddDbContextPool<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
+            var connectionString = config["ConnectionStrings:HelpDeskDBConnection2"];
+            ///services.AddDbContext<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
+            services.AddDbContext<HelpDeskDBContext>(o => o.UseSqlite(connectionString));
+            //services.AddDbContext<HelpDeskDBContext>(o => { o.UseSqlite($"Data Source={_appHost.ContentRootPath}/FintrakHelpDeskDB.db"); });
+            ////services.AddDbContextPool<HelpDeskDBContext>(o => o.UseSqlServer(connectionString));
         }
 
 

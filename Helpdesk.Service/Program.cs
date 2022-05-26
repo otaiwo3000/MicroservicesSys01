@@ -23,7 +23,7 @@ namespace Helpdesk.Service
     {
         public static void Main(string[] args)
         {
-            ListenForIntegrationEvents();
+            //ListenForIntegrationEvents();
             CreateHostBuilder(args).Build().Run();
         }
 

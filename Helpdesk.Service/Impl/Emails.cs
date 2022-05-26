@@ -61,33 +61,33 @@ namespace Helpdesk.Service.Impl
 
                 _logger.LogInformation($"about to call GetReceivedIssueMailBySubject method");
 
-                ReceivedIssueMails emailbysubject = _repository.receivedissuemails.GetReceivedIssueMailBySubject(organization.OrganizationId, emailres.EMailSubject, emailres.EMailFrom);
-                if (emailbysubject == null)
-                {
-                    List<string> exceptionWords = _repository.receivedemailfilter.GetAllReceivedEmailFilter(organization.OrganizationId).Where(x => x.IsEnabled == true).Select(x => x.Word.Trim().ToLower()).ToList();
+                //ReceivedIssueMails emailbysubject = _repository.receivedissuemails.GetReceivedIssueMailBySubject(organization.OrganizationId, emailres.EMailSubject, emailres.EMailFrom);
+                //if (emailbysubject == null)
+                //{
+                //    List<string> exceptionWords = _repository.receivedemailfilter.GetAllReceivedEmailFilter(organization.OrganizationId).Where(x => x.IsEnabled == true).Select(x => x.Word.Trim().ToLower()).ToList();
 
-                    //if exception words are listed in the DB/table, use the words to filter the email as done below:
-                    if (exceptionWords.Count > 0)
-                    {
-                        //char[] spearator = { ',', ';' };
-                        char[] spearator = { ' ', ',', ';', ':', '-' };
-                        if (!exceptionWords.Any(x => rim.EMailSubject.Split(spearator, StringSplitOptions.RemoveEmptyEntries).Any(y => y == x)))
-                        {
-                            _repository.receivedissuemails.CreateReceivedIssueMail(rim);
-                            _repository.Save();
+                //    //if exception words are listed in the DB/table, use the words to filter the email as done below:
+                //    if (exceptionWords.Count > 0)
+                //    {
+                //        //char[] spearator = { ',', ';' };
+                //        char[] spearator = { ' ', ',', ';', ':', '-' };
+                //        if (!exceptionWords.Any(x => rim.EMailSubject.Split(spearator, StringSplitOptions.RemoveEmptyEntries).Any(y => y == x)))
+                //        {
+                //            _repository.receivedissuemails.CreateReceivedIssueMail(rim);
+                //            _repository.Save();
 
-                            SupportAutoResponseMail(emailres.EMailFrom, emailres.EMailSubject);
-                        }
-                    }
-                    //if exception words returns empty, just go ahead and do the below:
-                    else
-                    {
-                        _repository.receivedissuemails.CreateReceivedIssueMail(rim);
-                        _repository.Save();
+                //            SupportAutoResponseMail(emailres.EMailFrom, emailres.EMailSubject);
+                //        }
+                //    }
+                //    //if exception words returns empty, just go ahead and do the below:
+                //    else
+                //    {
+                //        _repository.receivedissuemails.CreateReceivedIssueMail(rim);
+                //        _repository.Save();
 
-                        SupportAutoResponseMail(emailres.EMailFrom, emailres.EMailSubject);
-                    }
-                }
+                //        SupportAutoResponseMail(emailres.EMailFrom, emailres.EMailSubject);
+                //    }
+                //}
                 _logger.LogInformation($"Emails>>GetMail call is successful");
             }
         }
