@@ -77,6 +77,7 @@ namespace UserMgt.Service.Extensions
         public static void ConfigureIdentityWrapper(this IServiceCollection services)
         {
             services.AddIdentity<Aspnetusers, IdentityRole>()
+                //.AddEntityFrameworkSqlite().AddDbContext<AspnetIdentityDBContext>()
                .AddEntityFrameworkStores<AspnetIdentityDBContext>()
                .AddDefaultTokenProviders();     //NOTE: registering the token provider for the application. This will enable password reset token generation (ie help you to be able to create password reset token during password reset operation), otherwise, your password reset implementation will not work.
 

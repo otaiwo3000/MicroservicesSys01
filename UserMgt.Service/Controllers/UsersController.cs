@@ -173,8 +173,9 @@ namespace UserMgt.Service.Controllers
         }
 
         [HttpPost]
-        [Route("createnewuser")]
-        //[CustomAuthorizeFilter(RequiredPrivileges = "createnewuser")]
+       [Route("createnewuser")]
+       //[AllowAnonymous]
+        ////[CustomAuthorizeFilter(RequiredPrivileges = "createnewuser")]
         public IActionResult CreateUser([FromBody] UserRoleGroupJoinsCreateModel userrolegroupjoinModel)
         //public IActionResult CreateUsers([FromBody]UsersCreateModel dtomodel)
         {
@@ -217,20 +218,21 @@ namespace UserMgt.Service.Controllers
                 }
 
                 int currentUserOrganization = int.Parse(HttpContext.User.Claims.Where(x => x.Type == "organization").Select(x => x.Value).FirstOrDefault());
+                //int currentUserOrganization = 1;
                 var modelEntity = _mapper.Map<Users>(dtomodel);
                 modelEntity.OrganizationId = currentUserOrganization;   //////////// to be got from the login user
 
                 _repository.users.CreateUser(modelEntity);
 
-                //-------------- for RabbitMQ Messaging starts -------------------------------
-                var integrationEventData = JsonConvert.SerializeObject(new
-                {
-                    UserId = modelEntity.UserId,
-                    FirstName = modelEntity.FirstName  //update
-                });
-                PublishToMessageQueue("user.add", integrationEventData);
-                //The connection and other RabbitMQ objects are not correctly closed in this block.
-                //-------------- for RabbitMQ Messaging ends ---------------------------
+                ////-------------- for RabbitMQ Messaging starts -------------------------------
+                //var integrationEventData = JsonConvert.SerializeObject(new
+                //{
+                //    UserId = modelEntity.UserId,
+                //    FirstName = modelEntity.FirstName  //update
+                //});
+                //PublishToMessageQueue("user.add", integrationEventData);
+                ////The connection and other RabbitMQ objects are not correctly closed in this block.
+                ////-------------- for RabbitMQ Messaging ends ---------------------------
 
                 _repository.Save();
                 _logger.LogInformation($"A new user: {modelEntity.Email} is created.");
@@ -241,10 +243,12 @@ namespace UserMgt.Service.Controllers
                     Email = modelEntity.Email,
                     UserName = modelEntity.Email
                 };
-                ////var pwdObj = new PasswordGeneratorHelper();
-                //var result = _userManager.CreateAsync(user, PasswordGeneratorHelper.GeneratePassword(_userManager));
-                string pwd = PasswordGeneratorHelper.GeneratePassword(_userManager);
-                var result = _userManager.CreateAsync(user, pwd);
+                //////var pwdObj = new PasswordGeneratorHelper();
+                ////var result = _userManager.CreateAsync(user, PasswordGeneratorHelper.GeneratePassword(_userManager));
+                //string pwd = PasswordGeneratorHelper.GeneratePassword(_userManager);
+                string pwd = "Password@1000";
+
+               var result = _userManager.CreateAsync(user, pwd);
                 ////var result = _userManager.CreateAsync(user, "A@1xxpass");
 
                 //////var result = await _userManager.CreateAsync(user, userModel.Password);               
@@ -295,8 +299,8 @@ namespace UserMgt.Service.Controllers
                     MailContent = "You have been profiled on ' ' application with your username as: " + user.UserName + " and password as: " + pwd
                 };
 
-                _repository.pendingemail.CreatePendingEmail(pendingemailObj);
-                _repository.Save();
+                //_repository.pendingemail.CreatePendingEmail(pendingemailObj);
+                //_repository.Save();
 
                 var createdUser = _mapper.Map<UsersModel>(modelEntity);
                 return Ok(createdUser);
@@ -311,7 +315,8 @@ namespace UserMgt.Service.Controllers
         }
 
         [HttpPut("updateuser/{id}")]
-        //[CustomAuthorizeFilter(RequiredPrivileges = "updateuser")]
+        ////[CustomAuthorizeFilter(RequiredPrivileges = "updateuser")]
+        //[AllowAnonymous]
         public IActionResult UpdateUser(int id, [FromBody] UserRoleGroupJoinsCreateModel userrolegroupjoinModel)
         {
             try
@@ -526,7 +531,8 @@ namespace UserMgt.Service.Controllers
             {
                 string username = forgotpasswordModel.UserEmail;
                 //var user = _userManager.FindByIdAsync(id);
-                var aspnetuser_async = _userManager.FindByNameAsync(username);
+                //var aspnetuser_async = _userManager.FindByNameAsync(username);
+                var aspnetuser_async =  _userManager.FindByEmailAsync(username);
 
                 if (aspnetuser_async == null)
                 {
