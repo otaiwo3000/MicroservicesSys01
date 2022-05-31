@@ -224,15 +224,19 @@ namespace UserMgt.Service.Controllers
 
                 _repository.users.CreateUser(modelEntity);
 
-                ////-------------- for RabbitMQ Messaging starts -------------------------------
-                //var integrationEventData = JsonConvert.SerializeObject(new
-                //{
-                //    UserId = modelEntity.UserId,
-                //    FirstName = modelEntity.FirstName  //update
-                //});
-                //PublishToMessageQueue("user.add", integrationEventData);
-                ////The connection and other RabbitMQ objects are not correctly closed in this block.
-                ////-------------- for RabbitMQ Messaging ends ---------------------------
+                //-------------- for RabbitMQ Messaging starts -------------------------------
+                var integrationEventData = JsonConvert.SerializeObject(new
+                {
+                    UserId = modelEntity.UserId,
+                    Email = modelEntity.Email,
+                    FirstName = modelEntity.FirstName, 
+                    LastName = modelEntity.LastName,
+                    Gender = modelEntity.Gender,
+                    OrganizationId = modelEntity.OrganizationId,
+                });
+                PublishToMessageQueue("user.add", integrationEventData);
+                //The connection and other RabbitMQ objects are not correctly closed in this block.
+                //-------------- for RabbitMQ Messaging ends ---------------------------
 
                 _repository.Save();
                 _logger.LogInformation($"A new user: {modelEntity.Email} is created.");
@@ -359,8 +363,10 @@ namespace UserMgt.Service.Controllers
                 var integrationEventData = JsonConvert.SerializeObject(new
                 {
                     //UserId = userEntity.UserId,
-                    Email = userEntity.Email,
-                    FirstName = userEntity.FirstName  //update
+                    Email_0 = userEntity.Email,
+                    _0FirstName = userEntity.FirstName,  //update
+                    _0LastName = userEntity.LastName,  //update
+                    _0Gender = userEntity.Gender  //update
                 });
                 PublishToMessageQueue("user.update", integrationEventData);
                 //-------------- for RabbitMQ Messaging ends -------------------------------

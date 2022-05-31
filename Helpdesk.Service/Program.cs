@@ -23,7 +23,7 @@ namespace Helpdesk.Service
     {
         public static void Main(string[] args)
         {
-            //ListenForIntegrationEvents();
+            ListenForIntegrationEvents();
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -64,8 +64,9 @@ namespace Helpdesk.Service
             {
                 //var contextOptions = new DbContextOptionsBuilder<PostServiceContext>()
                 var contextOptions = new DbContextOptionsBuilder<HelpDeskDBContext>()
-                //.UseSqlite(@"Data Source=post.db")
-                    .UseSqlServer(@"Data Source=192.168.43.197,51484;Initial Catalog=FintrakHelpDeskDB;User =sa;Password=password@1;Integrated Security=false;TrustServerCertificate=true;Persist Security Info=false;Persist Security Info=false;")
+                .UseSqlite(@"Data Source=FintrakHelpDeskDB.db")
+                    //.UseSqlite(@"Data Source=post.db")
+                    //.UseSqlServer(@"Data Source=192.168.43.197,51484;Initial Catalog=FintrakHelpDeskDB;User =sa;Password=password@1;Integrated Security=false;TrustServerCertificate=true;Persist Security Info=false;Persist Security Info=false;")
                     .Options;
 
                 var dbContext = new HelpDeskDBContext(contextOptions);
@@ -81,16 +82,22 @@ namespace Helpdesk.Service
                     dbContext.UsersSet.Add(new Users()
                     {
                         //UserId = data["UserId"].Value<int>(),
-                        //Email = data["Email"].Value<string>(),
-                        FirstName = data["FirstName"].Value<string>()
+                        Email = data["Email"].Value<string>(),
+                        FirstName = data["FirstName"].Value<string>(),
+                        LastName = data["LastName"].Value<string>(),
+                        Gender = data["Gender"].Value<string>(),
+                        OrganizationId = int.Parse(data["OrganizationId"].Value<string>()),
                     });
                     dbContext.SaveChanges();
                 }
                 else if (type == "user.update")
                 {
                     //var user = dbContext.UsersSet.First(a => a.UserId == data["UserId"].Value<int>());
-                    var user = dbContext.UsersSet.First(a => a.Email == data["Email"].Value<string>());
-                    user.FirstName = data["FirstName"].Value<string>();
+                    var user = dbContext.UsersSet.First(a => a.Email == data["Email_0"].Value<string>());
+
+                    user.FirstName = data["_0FirstName"].Value<string>();
+                    user.LastName = data["_0LastName"].Value<string>();
+                    user.Gender = data["_0Gender"].Value<string>();
                     dbContext.SaveChanges();
                 }
             };
